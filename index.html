@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codingwale</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- AOS CSS (scroll animations) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/tablogo.png">
+
+    <style>
+        body {
+            background-color: #0F0E47;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: transparent !important;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s ease;
+            padding: 15px 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 14, 71, 0.9) !important;
+            padding: 8px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+            margin-right: 5px;
+            margin: -15px -5px -15px 0px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.25rem;
+            font-family: Cursive;
+            margin: -15px -15px -15px -15px;
+            color: #ff8e53 !important;
+        }
+
+        .nav-link {
+            color: rgb(206, 129, 13) !important;
+            font-weight: bold;
+            position: relative;
+            font-size: larger;
+            font-family: Monospace;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: orange;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 15px 50px;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+
+        .typed-text {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: white;
+            margin-left: 3px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .carousel-item img {
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* BUTTONS */
+        .btn-gradient {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            border-radius: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 rgba(255, 142, 83, 0.7);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(255, 142, 83, 0.9);
+            }
+        }
+
+        /* CARDS */
+        .card {
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .hero-section {
+                text-align: center;
+                padding: 60px 15px;
+            }
+
+            .btn-gradient {
+                margin: 0 auto;
+                display: inline-block;
+            }
+        }
+
+        /* Image wrapper for uniform height */
+        .image-wrapper {
+            width: 200px;
+            /* width for desktop */
+            height: 200px;
+            /* height for desktop */
+            margin: 0 auto 10px;
+            /* center horizontally, spacing below */
+            overflow: hidden;
+            /* crop overflow */
+            border-radius: 12px;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            /* fill container */
+            height: 100%;
+            /* fill container */
+            object-fit: cover;
+            /* maintain aspect ratio */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .image-wrapper {
+                width: 150px;
+                height: 150px;
+                padding-right: 10px;
+            }
+        }
+        .course-card {
+  background-color: #005e5e;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-img-wrapper {
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 220px; /* Fixed height for uniformity */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.course-card:hover .card-img-wrapper img {
+  transform: scale(1.1); /* Zoom-in effect on hover */
+}
+
+.card-body h5 {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  color: white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 142, 83, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .card-img-wrapper img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-img-wrapper img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-img-wrapper img {
+    height: 160px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.gif" alt="Codingwale Logo"> Codingwale
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-3"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h1 class="hero-title">Welcome to <span style="color:#ff8e53;">Codingwale...</span></h1>
+                    <p class="lead mt-3"><span id="typed" class="typed-text"></span><span class="cursor"></span></p>
+                    <a href="courses.html" class="btn btn-lg btn-gradient mt-4 px-5 py-3">Explore Courses</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                                class="active"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="images/coracelimg1.png" alt="Slide 1"></div>
+                            <div class="carousel-item"><img src="images/coracelimg2.jpeg" alt="Slide 2"></div>
+                            <div class="carousel-item"><img src="images/coracelimg3.jpg" alt="Slide 3"></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section>
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-weight:bold; color:#ff6b6b;" data-aos="fade-up">Why Choose
+                Codingwale?</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 p-4" style="background-color:#005e5e;">
+                        <i class="bi bi-code-slash fs-1 mb-3" style="color:#ff6b6b;"></i>
+                        <h5>Hands-on Projects</h5>
+                        <p>Learn by building real-world projects to enhance your portfolio.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 p-4" style="background-color:#005e5e;">
+                        <i class="bi bi-people fs-1 mb-3" style="color:#ff6b6b;"></i>
+                        <h5>Expert Mentors</h5>
+                        <p>Get guidance from experienced developers to accelerate learning.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 p-4" style="background-color:#005e5e;">
+                        <i class="bi bi-award fs-1 mb-3" style="color:#ff6b6b;"></i>
+                        <h5>Certification</h5>
+                        <p>Earn industry-recognized certificates after completing courses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <!-- POPULAR COURSES -->
+    <section class="popular-courses-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5" style="font-weight:bold; color:#ff6b6b;" data-aos="fade-up">
+      Popular Courses
+    </h2>
+    <div class="row g-4">
+      <!-- Course 1 -->
+      <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="100">
+        <div class="card course-card h-100">
+          <div class="card-img-wrapper">
+            <img src="images/cource1.png" class="card-img-top" alt="Web Development">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Web Development</h5>
+            <p class="card-text">Learn HTML, CSS, JS, and popular frameworks.</p>
+            <a href="courses.html" class="btn btn-gradient">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="200">
+        <div class="card course-card h-100">
+          <div class="card-img-wrapper">
+            <img src="images/cource2.png" class="card-img-top" alt="Python Programming">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">DevOps</h5>
+            <p class="card-text">Code faster, deploy smarter. DevOps gets it done.</p>
+            <a href="courses.html" class="btn btn-gradient">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="300">
+        <div class="card course-card h-100">
+          <div class="card-img-wrapper">
+            <img src="images/cource3.png" class="card-img-top" alt="Data Science">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Data Science</h5>
+            <p class="card-text">Analyze data and build ML models.</p>
+            <a href="courses.html" class="btn btn-gradient">View Course</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <br><br>
+
+    <!-- PLACEMENTS & REVIEWS -->
+
+    <section class="placements-section py-5">
+  <div class="container">
+    <!-- Heading -->
+    <h2 class="text-center mb-5" data-aos="fade-up" style="font-weight:bold; color:#ff6b6b;">
+      Our Student Placements & Reviews
+    </h2>
+
+    <!-- Carousel -->
+    <div id="placementCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student1.jpg" alt="Student 1">
+                </div>
+                <h5 class="text-white">John Doe</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Frontend Developer</p>
+                <p class="text-white mb-1">ABC College</p>
+                <p class="text-white fst-italic">"The course helped me land my dream job!"</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student2.png" alt="Student 2">
+                </div>
+                <h5 class="text-white">Jane Smith</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Backend Developer</p>
+                <p class="text-white mb-1">XYZ University</p>
+                <p class="text-white fst-italic">"Amazing mentors and hands-on projects."</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student3.jpg" alt="Student 3">
+                </div>
+                <h5 class="text-white">Sam Wilson</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Full Stack Developer</p>
+                <p class="text-white mb-1">LMN Institute</p>
+                <p class="text-white fst-italic">"I gained confidence in coding and interviews."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student4.jpg" alt="Student 4">
+                </div>
+                <h5 class="text-white">Alex Brown</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Frontend Developer</p>
+                <p class="text-white mb-1">PQR University</p>
+                <p class="text-white fst-italic">"Excellent guidance and practical projects."</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student5.png" alt="Student 5">
+                </div>
+                <h5 class="text-white">Lisa White</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Backend Developer</p>
+                <p class="text-white mb-1">UVW College</p>
+                <p class="text-white fst-italic">"Hands-on projects really helped me improve."</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student6.jpg" alt="Student 6">
+                </div>
+                <h5 class="text-white">Mark Lee</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Full Stack Developer</p>
+                <p class="text-white mb-1">XYZ Institute</p>
+                <p class="text-white fst-italic">"Great mentorship and job assistance."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student7.jpg" alt="Student 7">
+                </div>
+                <h5 class="text-white">Emma Johnson</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Data Scientist</p>
+                <p class="text-white mb-1">LMN University</p>
+                <p class="text-white fst-italic">"The course helped me land a top data role."</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student8.jpg" alt="Student 8">
+                </div>
+                <h5 class="text-white">David Kim</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Backend Developer</p>
+                <p class="text-white mb-1">XYZ College</p>
+                <p class="text-white fst-italic">"Hands-on practice made me confident."</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block mb-3">
+              <div class="card text-center p-3" style="background-color:#005e5e;">
+                <div class="image-wrapper">
+                  <img src="images/student9.jpg" alt="Student 9">
+                </div>
+                <h5 class="text-white">Sophia Lee</h5>
+                <p class="mb-1" style="color: #ff6b6b; font-weight: 900;">Full Stack Developer</p>
+                <p class="text-white mb-1">ABC Institute</p>
+                <p class="text-white fst-italic">"Great mentorship and hands-on guidance."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#placementCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#placementCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- CTA -->
+    <section class="text-center py-5" style="background:linear-gradient(45deg,#ff6b6b,#ff8e53);">
+        <div class="container text-white" data-aos="zoom-in">
+            <h2>Join Codingwale Today!</h2>
+            <p>Subscribe for free resources, updates, and course alerts.</p>
+            <a href="courses.html" class="btn btn-lg" style="background:white; color:#ff6b6b; border-radius:30px;">Get
+                Started</a>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+
+    <!-- Navbar Scroll Effect -->
+    <script>
+        window.addEventListener("scroll", () => {
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("scrolled", window.scrollY > 50);
+        });
+    </script>
+
+    <!-- Typing Effect -->
+    <script>
+        const typedText = document.getElementById("typed");
+        const textArray = [
+            "Learn coding with fun.",
+            "Build real-world projects.",
+            "Master programming skills.",
+            "Shape your future with us."
+        ];
+        let arrayIndex = 0, charIndex = 0, isDeleting = false;
+
+        function typeEffect() {
+            const currentText = textArray[arrayIndex];
+            if (!isDeleting) {
+                typedText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1200);
+                    return;
+                }
+            } else {
+                typedText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    arrayIndex = (arrayIndex + 1) % textArray.length;
+                }
+            }
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        }
+        document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+</body>
+
+</html>

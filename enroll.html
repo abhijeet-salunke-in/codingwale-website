@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll - Codingwale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0F0E47;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding-top: 80px;
+        }
+
+        .card {
+            border-radius: 15px;
+            background-color: #005e5e;
+            padding: 20px;
+            color: white;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            border-radius: 30px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-gradient:hover {
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="section-title">Course Enrollment</h1>
+        <div id="courseInfo" class="card"></div>
+    </div>
+
+    <script>
+        // Course details data
+        const courses = {
+            "Web Development": {
+                duration: "6 Months",
+                fees: "$499",
+                benefits: [
+                    "Master HTML, CSS, JavaScript, and React",
+                    "Build 10+ real-world projects",
+                    "Job-ready portfolio",
+                    "Interview preparation support"
+                ]
+            },
+            "Python Programming": {
+                duration: "4 Months",
+                fees: "$399",
+                benefits: [
+                    "Python basics to advanced",
+                    "Data structures & algorithms",
+                    "Automation & mini-projects",
+                    "Great foundation for Data Science"
+                ]
+            },
+            "Data Science": {
+                duration: "8 Months",
+                fees: "$699",
+                benefits: [
+                    "Learn data cleaning, analysis & visualization",
+                    "Hands-on Machine Learning models",
+                    "Work with Pandas, NumPy, Matplotlib",
+                    "Capstone project with real datasets"
+                ]
+            },
+            "Machine Learning": {
+                duration: "10 Months",
+                fees: "$799",
+                benefits: [
+                    "Deep dive into ML algorithms",
+                    "TensorFlow & PyTorch basics",
+                    "Build predictive models",
+                    "AI project-based learning"
+                ]
+            },
+            "App Development": {
+                duration: "7 Months",
+                fees: "$599",
+                benefits: [
+                    "Learn Android (Java/Kotlin) & iOS (Swift)",
+                    "Build cross-platform apps with Flutter",
+                    "Publish apps on Play Store & App Store",
+                    "Career guidance & project mentoring"
+                ]
+            },
+            "DevOps": {
+                duration: "6 Months",
+                fees: "$749",
+                benefits: [
+                    "Faster Deployment with CI/CD pipelines",
+                    "Hands-on with Docker, Kubernetes, Jenkins, and Git",
+                    "Work with AWS & Azure cloud platforms",
+                    "Collaboration between Development and Operations",
+                    "High-demand career with strong job opportunities",
+                    "Automation of infrastructure and monitoring",
+                    "Real-world projects to boost your portfolio",
+                    "Prepare for DevOps Engineer & SRE roles"
+                ]
+            }
+        };
+
+        // Get course from URL
+        const params = new URLSearchParams(window.location.search);
+        const courseName = params.get("course");
+
+        const courseInfoDiv = document.getElementById("courseInfo");
+
+        if (courseName && courses[courseName]) {
+            const course = courses[courseName];
+            courseInfoDiv.innerHTML = `
+        <h2>${courseName}</h2>
+        <p><strong>Duration:</strong> ${course.duration}</p>
+        <p><strong>Fees:</strong> ${course.fees}</p>
+        <h5>Benefits:</h5>
+        <ul>
+          ${course.benefits.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+        <a href="contact.html" class="btn btn-gradient mt-3">Proceed to Enroll</a>
+      `;
+        } else {
+            courseInfoDiv.innerHTML = `
+        <h2>Course not found</h2>
+        <p>Please go back and select a valid course.</p>
+      `;
+        }
+    </script>
+</body>
+
+</html>

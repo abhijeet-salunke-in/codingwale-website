@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codingwale - Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/tablogo.png">
+  <style>
+    /* Body padding for fixed navbar */
+    body {
+      background-color: #0F0E47;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 80px;
+      /* Offset for fixed navbar */
+    }
+
+    @media (max-width: 991px) {
+      body {
+        padding-top: 100px;
+      }
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: transparent !important;
+      backdrop-filter: blur(8px);
+      transition: all 0.4s ease;
+      padding: 15px 0;
+    }
+
+    .navbar.scrolled {
+      background: rgba(15, 14, 71, 0.9) !important;
+      padding: 8px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+      margin-right: 5px;
+      margin: -15px -5px -15px 0px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 1.25rem;
+      font-family: Cursive;
+      margin: -15px -15px -15px -15px;
+      color: #ff8e53 !important;
+    }
+
+    .nav-link {
+      color: rgb(206, 129, 13) !important;
+      font-weight: bold;
+      position: relative;
+      font-size: larger;
+      font-family: Monospace;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: orange;
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Section Titles */
+    .section-title {
+      color: #ff6b6b;
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    /* Buttons & Form */
+    .btn-gradient {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+      color: white;
+      border-radius: 30px;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-gradient:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-gradient::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-45deg);
+      transition: left 0.5s ease;
+    }
+
+    .btn-gradient:hover::after {
+      left: 200%;
+    }
+
+    .form-control {
+      border-radius: 15px;
+      background-color: #005e5e;
+      color: white;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border: 2px solid #ff6b6b;
+      background-color: #005e5e;
+      color: white;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-info i {
+      color: #ff6b6b;
+      margin-right: 10px;
+    }
+
+    .contact-info:hover {
+      transform: translateX(5px);
+      color: #ff8e53;
+    }
+
+    /* Map */
+    .map-container {
+      border-radius: 15px;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    .map-container iframe {
+      filter: grayscale(40%) contrast(1.2);
+      transition: 0.3s ease;
+    }
+
+    .map-container iframe:hover {
+      filter: grayscale(0%);
+    }
+
+    /* CTA Pulse */
+    .btn-lg {
+      animation: pulse 2s infinite;
+      border-radius: 30px;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.gif" alt="Codingwale Logo"> Codingwale
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-3"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item mx-3"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item mx-3"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item mx-3"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="py-5" style="background-color:#0F0E47;">
+    <div class="container" data-aos="fade-down">
+      <h1 class="section-title">Contact Us</h1>
+      <p class="lead text-center mb-5">Have questions? Reach out to us using the form below or through our contact
+        details.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM & INFO -->
+  <section class="py-5" style="background-color:#005e5e;">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Form -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gradient btn-lg">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <h3 class="mb-4" style="color:#ff6b6b;">Get in Touch</h3>
+          <p class="contact-info"><i class="bi bi-geo-alt-fill"></i>123 Codingwale Street, Tech City, Country</p>
+          <p class="contact-info"><i class="bi bi-envelope-fill"></i>contact@codingwale.com</p>
+          <p class="contact-info"><i class="bi bi-telephone-fill"></i>+123 456 7890</p>
+
+          <!-- Google Maps Embed -->
+          <!-- Google Maps Embed -->
+          <div class="map-container" data-aos="zoom-in">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d937.7447903119495!2d74.72391306955676!3d19.92528295966504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdc6fa48984739f%3A0xd994161afd078c57!2zQ29kaW5nd2FsZSBWYWlqYXB1ciAo4KSV4KWL4KSh4KWA4KSC4KSX4KS14KS-4KSy4KWHKQ!5e0!3m2!1sen!2sin!4v1758660700751!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL-TO-ACTION -->
+  <section class="text-center py-5" style="background:linear-gradient(45deg,#ff6b6b,#ff8e53);">
+    <div class="container text-white" data-aos="fade-up">
+      <h2>Start Your Coding Journey!</h2>
+      <p>Enroll in a course and take the first step towards becoming a professional developer.</p>
+      <a href="courses.html" class="btn btn-lg" style="background:white; color:#ff6b6b;">Explore Courses</a>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document.querySelector(".navbar")
+        .classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+</body>
+
+</html>
